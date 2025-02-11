@@ -7,7 +7,7 @@ import Link from "next/link";
 // =============================
 // 📌 内部コンポーネントのインポート（修正済み）
 // =============================
-import { Icons } from "./ui/icons"; // ✅ 修正: "../ui/icons" → "./ui/icons"
+import { Icons } from "./ui/icons";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";

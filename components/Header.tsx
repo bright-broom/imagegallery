@@ -9,11 +9,11 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="shadow-md bg-white/70">
+    <header className="bg-white shadow-md">
       <div className="container flex items-center justify-between px-4 py-3 mx-auto">
         {/* ✅ ロゴ（ホームリンク） */}
         <Link href="/" className="flex items-center space-x-2">
-          <span className="text-xl font-bold">MyApp</span>
+          <span className="text-xl font-bold">Portfolio</span>
         </Link>
 
         {/* ✅ デスクトップ用ナビゲーションメニュー */}
