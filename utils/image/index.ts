@@ -110,7 +110,9 @@ export async function getPhotos(): Promise<ImageProps[]> {
         );
       }
 
-      const results = await cloudinary.search
+      // ✅ TypeScriptのnull安全性を保証するため、型アサーションを追加
+      // cloudinaryオブジェクトがnullでないことを明示的に示す
+      const results = await (cloudinary as NonNullable<typeof cloudinary>).search
         .expression(`folder:${process.env.CLOUDINARY_FOLDER}/*`)
         .sort_by("public_id", "desc")
         .max_results(400)
