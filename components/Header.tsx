@@ -1,44 +1,58 @@
 import { useState } from "react";
 import Link from "next/link";
 
+// =============================
+// 📌 ヘッダーコンポーネント
+// =============================
 export default function Header() {
+  // 📌 モバイルメニューの開閉状態を管理
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <header className="shadow-md bg-white/70">
-      <div className="container flex items-center justify-between px-3 py-3 mx-auto">
-        {/* ロゴ */}
+      <div className="container flex items-center justify-between px-4 py-3 mx-auto">
+        {/* ✅ ロゴ（ホームリンク） */}
         <Link href="/" className="flex items-center space-x-2">
           <span className="text-xl font-bold">MyApp</span>
         </Link>
 
-        {/* ナビゲーションメニュー（デスクトップ用） */}
+        {/* ✅ デスクトップ用ナビゲーションメニュー */}
         <nav className="hidden space-x-6 md:flex">
-          <Link href="/" className="text-gray-700 hover:text-black">Home</Link>
-          <Link href="/about" className="text-gray-700 hover:text-black">About</Link>
-          <Link href="/contact" className="text-gray-700 hover:text-black">Contact</Link>
+          <NavItem href="/" label="Home" />
+          <NavItem href="/about" label="About" />
+          <NavItem href="/contact" label="Contact" />
         </nav>
 
-        {/* ハンバーガーメニュー（モバイル用） */}
+        {/* ✅ モバイル用ハンバーガーメニュー */}
         <button
-          type="button" // 修正ポイント
+          type="button"
           className="text-gray-700 md:hidden"
           onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle menu"
         >
           ☰
         </button>
       </div>
 
-      {/* モバイル用ドロワーメニュー */}
+      {/* ✅ モバイル用ドロワーメニュー */}
       {isOpen && (
         <div className="bg-white border-t shadow-md md:hidden">
           <nav className="flex flex-col py-2">
-            <Link href="/" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Home</Link>
-            <Link href="/about" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">About</Link>
-            <Link href="/contact" className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Contact</Link>
+            <NavItem href="/" label="Home" />
+            <NavItem href="/about" label="About" />
+            <NavItem href="/contact" label="Contact" />
           </nav>
         </div>
       )}
     </header>
   );
 }
+
+// =============================
+// 📌 ナビゲーションリンクコンポーネント
+// =============================
+const NavItem = ({ href, label }: { href: string; label: string }) => (
+  <Link href={href} className="block px-4 py-2 text-gray-700 hover:bg-gray-100 md:hover:text-black">
+    {label}
+  </Link>
+);

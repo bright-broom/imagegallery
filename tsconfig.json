@@ -1,20 +1,69 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "incremental": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve"
+    // ========================
+    // 🎯 TypeScript のバージョンとターゲット環境
+    // ========================
+    "target": "esnext", // ✅ 最新の ECMAScript 機能を使用 (es5 だとイテレーションエラーが発生)
+    "module": "esnext", // ✅ モジュールシステムを `ESNext` に設定 (Next.js に適した設定)
+    // ========================
+    // 📦 使用するライブラリ
+    // ========================
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ], // ✅ DOM API, async/await などを含む最新仕様
+    // ========================
+    // 🚀 プロジェクトの型チェック設定
+    // ========================
+    "strict": true, // ✅ 厳密な型チェックを有効化 (型安全性を向上)
+    "strictNullChecks": true, // ✅ `undefined` や `null` の厳密なチェックを行う
+    "forceConsistentCasingInFileNames": true, // ✅ 大文字・小文字の違いを厳密に区別
+    "skipLibCheck": true, // ✅ node_modules 内の型チェックをスキップ (ビルド速度向上)
+    // ========================
+    // ⚡️ コンパイル動作の最適化
+    // ========================
+    "noEmit": true, // ✅ `.js` ファイルを生成せず、型チェックのみにする
+    "incremental": true, // ✅ 増分ビルドを有効化 (ビルド時間を短縮)
+    "isolatedModules": true, // ✅ 各ファイルを個別に解析 (Next.js の最適化)
+    // ========================
+    // 🛠️ モジュール解決の設定
+    // ========================
+    "moduleResolution": "node", // ✅ Node.js 形式のモジュール解決を使用
+    "resolveJsonModule": true, // ✅ `.json` ファイルのインポートを許可
+    // ========================
+    // 🎨 JSX & React の設定
+    // ========================
+    "jsx": "preserve", // ✅ Next.js で推奨される `react-jsx` を使用 (自動インポート最適化)
+    // ========================
+    // 🔥 最新の JS 機能を利用可能に
+    // ========================
+    "downlevelIteration": true, // ✅ `for...of` ループやスプレッド演算子を適切に変換
+    "esModuleInterop": true, // ✅ CommonJS モジュール (`require`) との互換性を向上
+    // ========================
+    // 📂 エイリアスの設定
+    // ========================
+    "baseUrl": ".", // ✅ プロジェクトのルートを基準に解決
+    "paths": {
+      "@/*": [
+        "./*"
+      ] // ✅ `@/components/Header` のような短縮パスを有効化
+    },
+    "allowJs": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "utils/imagemin-jpegtran.d.ts"],
-  "exclude": ["node_modules"]
+  // ========================
+  // 📌 TypeScript の対象ファイル
+  // ========================
+  "include": [
+    "next-env.d.ts", // ✅ Next.js の環境型定義
+    "**/*.ts", // ✅ `.ts` ファイルをすべて含める
+    "**/*.tsx", // ✅ `.tsx` ファイルをすべて含める
+    "utils/imagemin-jpegtran.d.ts" // ✅ 特定の `.d.ts` ファイルを型チェック対象に含める
+  ],
+  // ========================
+  // 🚫 除外するファイル・フォルダ
+  // ========================
+  "exclude": [
+    "node_modules"
+  ] // ✅ `node_modules` は型チェックの対象外
 }
