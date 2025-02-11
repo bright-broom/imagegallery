@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.translate3d-reset {
+  transform: translate3d(0, 0, 0);
+}
+
+@layer components {
+  .aspect-3-2 {
+    aspect-ratio: 3/2;
+  }
+}
