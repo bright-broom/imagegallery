@@ -18,7 +18,6 @@ const nextConfig = {
     NEXT_PUBLIC_CLOUDINARY_API_SECRET: process.env.NEXT_PUBLIC_CLOUDINARY_API_SECRET,
   },
   reactStrictMode: true,
-  swcMinify: true,
 };
 
 module.exports = nextConfig;
