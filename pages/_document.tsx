@@ -3,7 +3,7 @@ import Document, { Head, Html, Main, NextScript } from "next/document";
 class MyDocument extends Document {
   render() {
     return (
-      <Html lang="en">
+      <Html lang="ja">
         <Head>
           <link rel="icon" href="/favicon.ico" />
           <meta
@@ -23,7 +23,7 @@ class MyDocument extends Document {
             content="See pictures from Next.js Conf and the After Party."
           />
         </Head>
-        <body className="bg-black antialiased">
+        <body className="antialiased bg-black">
           <Main />
           <NextScript />
         </body>
